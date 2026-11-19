@@ -2095,9 +2095,18 @@ BEGIN
   FOR I := 1 TO H DO BEGIN
     CLRROW(R);
     FOR K2 := 1 TO TROWS DO
-      IF I <= TCNT[K2] THEN
+      IF I <= TCNT[K2] THEN BEGIN
         FOR J := 1 TO TBDW[K2] DO
           R[TBDA[K2] + J - 1] := DMEM.TLINE[K2][I][TBDA[K2] + J - 1];
+        (* в таблице без линеек длинный текст соседних ячеек слипался,
+           если обе колонки заполнены до края; оставляем разрыв только
+           когда следующая колонка начинается с первой позиции *)
+        IF (NOT TABLINE) AND (K2 < TROWS) AND
+           (TBDA[K2 + 1] = TBDA[K2] + TBDW[K2]) AND
+           (DMEM.TLINE[K2 + 1][I][TBDA[K2 + 1]] <> ' ') AND
+           (DMEM.TLINE[K2][I][TBDA[K2] + TBDW[K2] - 1] <> ' ') THEN
+          R[TBDA[K2] + TBDW[K2] - 1] := ' '
+      END;
     IF TABLINE THEN
       FOR J := 1 TO TROWS + 1 DO BEGIN
         VIS := TRUE;
@@ -4023,7 +4032,7 @@ PROCEDURE COMMAND;
 VAR
   C, C2, C3: CHAR;
   HASNUM: BOOLEAN;
-  A, B, I: INTEGER;
+  A, B, I, SVPOS: INTEGER;
 BEGIN
   NN1 := 1;
   HASNUM := FALSE;
@@ -4118,6 +4127,10 @@ BEGIN
     END ELSE
       MACINS
   END ELSE IF C = 'S' THEN BEGIN
+    (* позиция после S: если далее T - это может быть не *ST, а слово
+       на кириллическую Т (в наборе ГОСТ-10859 она совпадает с латинской
+       T); при нераспознанном подкоде ST возвращаемся к абзацу *)
+    SVPOS := CPOS;
     IF (CPOS <= CWV) AND (CARD[CPOS] = 'T') THEN BEGIN
       IF (CPOS + 1 <= CWV) AND (CARD[CPOS + 1] >= '0') AND
          (CARD[CPOS + 1] <= '9') THEN
@@ -4187,8 +4200,16 @@ BEGIN
              начало-конец (SIPROD.MD, 4.9); TABLEDEF пропустит пробел *)
           CPOS := CPOS - 1;
           TABLEDEF(FALSE)
-        END ELSE
-          KLAIDA(10)
+        END ELSE BEGIN
+          (* *S + слово, начинающееся на Т, - абзац, а не таблица *)
+          CPOS := SVPOS;
+          IF (NW > 0) OR (CURPOS > CURFLDA) THEN BEGIN
+            FLUSHQ(FALSE);
+            COMMIT(TRUE)
+          END;
+          IF NN1 > 1 THEN EMPTIES(NN1 - 1);
+          INDON := TRUE
+        END
       END
     END ELSE IF (CPOS <= CWV) AND (CARD[CPOS] = 'L') THEN BEGIN
       CPOS := CPOS + 1;
@@ -4223,7 +4244,10 @@ BEGIN
     IF (NOT FRESHPG) OR (CURPOS > CURFLDA) THEN
       COMMIT(TRUE);
     POSMODE := FALSE;
-    FOR I := 1 TO NN1 DO PAGEEND
+    (* после таблицы строки уже зафиксированы на странице; PAGEEND
+       внутри таблицы перемешивает их с последующим текстом *)
+    IF NOT TABUSED THEN
+      FOR I := 1 TO NN1 DO PAGEEND
   END ELSE IF C = 'E' THEN BEGIN
     ENDTXT := TRUE;
     POSMODE := FALSE;
@@ -4519,6 +4543,11 @@ BEGIN
      (CARD[4] = 'D') THEN BEGIN
     ENDTXT := FALSE;
     FIR := TRUE;
+    (* новый блок *RED начинается с обычного междустрочного интервала:
+       *1RL предыдущего блока не должен наследоваться в таблицу *)
+    RLN := 0;
+    RLNNEW := 0;
+    RLNPEND := FALSE;
     WHILE NOT ENDTXT DO BEGIN
       GETCARD;
       IF EOFIN THEN
