@@ -222,4 +222,6 @@ DISPAK=/usr/local/bin/dispak BESM6_PATH="$HOME/.besm6:/usr/local/share/besm6" \
 
 *Ссылки: `../re-siprod/SIPROD.md`, `../re-siprod/pascal/README/README.md`,
 `../re-siprod/pascal/README/КОМАНДЫ.md`,
-`docs/espd/План_внедрения_блочного_шифрования_задание_3.b6`.*
+`docs/espd/План_внедрения_блочного_шифрования_задание_3.b6`.
+Известные дефекты редактора и обходы — в
+[реестре ошибок](siprod-editor-issues.md).*
