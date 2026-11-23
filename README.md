@@ -54,20 +54,30 @@
 Технологическую базу среды образуют пять оснований, названных в плане:
 конвейер документации СИПРОД, библиотека шифрования besm-crypto, исходные
 тексты ОС ДИСПАК (re-dispak) и две эмуляторные среды — dispak и simh.
-Вокруг них работает группа смежных проектов. Краткая сводка:
+Вокруг них работает группа смежных проектов. Сводка по состоянию на
+23.11.26 (новые проекты и изменения в инструментах отмечены в
+[docs/toolkit.md](docs/toolkit.md)):
 
 | Проект | Роль в плане | Ссылка |
 | --- | --- | --- |
-| besm-crypto | Библиотека ГОСТ 28147-89, хеш ГОСТ Р 34.11-94, база паролей тома 203 — эталон и ключевое хозяйство | [github.com/Azizz8618/besm-crypto](https://github.com/Azizz8618/besm-crypto) |
-| re-dispak | Исходные тексты ОС ДИСПАК 117/А — точки интеграции криптосервиса | [github.com/Azizz8618/re-dispak](https://github.com/Azizz8618/re-dispak) |
-| dispak | Эмулятор уровня задачи — ежедневная отладка и регрессия (51 испытание) | [github.com/Azizz8618/dispak](https://github.com/Azizz8618/dispak) |
-| simh | Полносистемный эмулятор — проверка системных изменений с загрузкой ОС | [github.com/Azizz8618/simh](https://github.com/Azizz8618/simh) |
-| monitor80-re | Разбор Монитора-80 — среда отладки и сопровождения | [github.com/Azizz8618/monitor80-re](https://github.com/Azizz8618/monitor80-re) |
+| besm-crypto | ГОСТ 28147-89, хеш ГОСТ Р 34.11-94, база паролей тома 203; утилита PLCATALOG печати ПЕРСО-библиотеки | [github.com/Azizz8618/besm-crypto](https://github.com/Azizz8618/besm-crypto) |
+| re-dispak | Исходники ОС ДИСПАК 117/А: точки интеграции криптосервиса, карта зон 2348 (PERSO СИПРОД, FOREX 5.00, GRAFOR и Глиссада-6) | [github.com/Azizz8618/re-dispak](https://github.com/Azizz8618/re-dispak) |
+| dispak | Эмулятор уровня задачи — ежедневная отладка и регрессия (51 испытание); модель плоттера БЕНСОН/НИТИ | [github.com/Azizz8618/dispak](https://github.com/Azizz8618/dispak) |
+| simh | Полносистемный эмулятор — проверка системных изменений с загрузкой ОС; обработка BENSON GRP18 и Fortran GP-тесты | [github.com/Azizz8618/simh](https://github.com/Azizz8618/simh) |
+| monitor80-re | Разбор Монитора-80 — загрузчик, каталоги, компилятор Паскаля 15.1 на томе 2348 | [github.com/Azizz8618/monitor80-re](https://github.com/Azizz8618/monitor80-re) |
+| re-siprod | СИПРОД: справочник режимов `*RED`, сборка 98 модулей настоящим МАКРО-БЕМШ, регрессия редактора | [github.com/Azizz8618/re-siprod](https://github.com/Azizz8618/re-siprod) |
 | dubna | Эмулятор системы «Дубна» — смежная операционная среда БЭСМ-6 | [github.com/Azizz8618/dubna](https://github.com/Azizz8618/dubna) |
-| dtran | Дизассемблер бинарников БЭСМ-6 — инструмент анализа объектных модулей | [github.com/Azizz8618/dtran](https://github.com/Azizz8618/dtran) |
+| dtran | Дизассемблер бинарников БЭСМ-6; поразрядная сверка эталонов `verify_dtran.pl` | [github.com/Azizz8618/dtran](https://github.com/Azizz8618/dtran) |
+| re-bemsh | Реверс транслятора БЕМШ и МАКРО-БЕМШ Монитора-80 (зоны 0137–0177₈) | [github.com/Azizz8618/re-bemsh](https://github.com/Azizz8618/re-bemsh) |
+| pascal-re | Реконструкция компилятора Паскаль-Монитор; сборка и запись в PERSO диска 2048 | [github.com/Azizz8618/pascal-re](https://github.com/Azizz8618/pascal-re) |
+| re-forex | FOREX 5.00 — реконструкция компилятора ФОРЭКС ИПМ АН СССР | [github.com/Azizz8618/re-forex](https://github.com/Azizz8618/re-forex) |
+| re-niti-graph | ГРАФОР-СУД (библиотека 22): дизассемблер, FORTRAN-порт, SVG-эталоны выдачи | [github.com/Azizz8618/re-niti-graph](https://github.com/Azizz8618/re-niti-graph) |
 | re-mars | Реконструкция MARS-6 — внешний сортированный контейнер ключ-значение | [github.com/Azizz8618/re-mars](https://github.com/Azizz8618/re-mars) |
-| re-glissade | Реконструкция тренажёра «Глиссада» — пример полного пакета задач | [github.com/Azizz8618/re-glissade](https://github.com/Azizz8618/re-glissade) |
+| re-glissade | Тренажёр «Глиссада» — пример полного пакета задач (PERSO 2700) | [github.com/Azizz8618/re-glissade](https://github.com/Azizz8618/re-glissade) |
+| re-mrv | СПО тренажёра К-71 на МАДЛЕН: расшифрованные исходники, OCR, сборка | [github.com/Azizz8618/re-mrv](https://github.com/Azizz8618/re-mrv) |
 | K-71 | Архивные материалы тренировочного комплекса К-71 «ДИАНА-БАРС» | [github.com/Azizz8618/K-71](https://github.com/Azizz8618/K-71) |
+| krab-re | Диалоговая система КРАБ СКП ЭВМ МГУ: 176 модулей, живые тесты под ДИСПАК | [github.com/Azizz8618/krab-re](https://github.com/Azizz8618/krab-re) |
+| kalah-re | Игра КАЛАХ: исходник на Паскале-Мониторе, сборка на 2061 и C++-порт | [github.com/Azizz8618/kalah-re](https://github.com/Azizz8618/kalah-re) |
 | ie15 | Эмулятор текстового видеотерминала «Электроника 15ИЭ-00-013» — учебные диалоговые средства | [github.com/Azizz8618/ie15](https://github.com/Azizz8618/ie15) |
 | mc-7401 | Эмулятор растрового графического терминала «Электроника МС 7401» — учебные диалоговые средства | [github.com/Azizz8618/mc-7401](https://github.com/Azizz8618/mc-7401) |
 

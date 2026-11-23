@@ -51,10 +51,18 @@
 | dispak | <https://github.com/Azizz8618/dispak> |
 | simh (ветвь besm6/simh) | <https://github.com/Azizz8618/simh> |
 | monitor80-re (ветвь besm6/monitor80-re) | <https://github.com/Azizz8618/monitor80-re> |
+| re-siprod | <https://github.com/Azizz8618/re-siprod> |
+| re-bemsh | <https://github.com/Azizz8618/re-bemsh> |
+| pascal-re | <https://github.com/Azizz8618/pascal-re> |
+| re-forex | <https://github.com/Azizz8618/re-forex> |
+| re-niti-graph | <https://github.com/Azizz8618/re-niti-graph> |
 | dubna | <https://github.com/Azizz8618/dubna> |
 | dtran (ветвь leobru/dtran) | <https://github.com/Azizz8618/dtran> |
 | re-mars | <https://github.com/Azizz8618/re-mars> |
 | re-glissade | <https://github.com/Azizz8618/re-glissade> |
+| re-mrv | <https://github.com/Azizz8618/re-mrv> |
+| krab-re | <https://github.com/Azizz8618/krab-re> |
+| kalah-re | <https://github.com/Azizz8618/kalah-re> |
 | K-71 | <https://github.com/Azizz8618/K-71> |
 | ie15 | <https://github.com/Azizz8618/ie15> |
 | mc-7401 | <https://github.com/Azizz8618/mc-7401> |
