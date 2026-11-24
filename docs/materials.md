@@ -40,7 +40,9 @@
   признаком шифрования.
 - **Приложение 3 плана** — схема ЕМВС НИТИ им. Александрова, исторический
   контекст среды. Развёрнутый разбор потоков и каналов:
-  [docs/emvs/EMVS-NITI-NETWORK.md](emvs/EMVS-NITI-NETWORK.md), цитаты —
+  [docs/emvs/EMVS-NITI-NETWORK.md](emvs/EMVS-NITI-NETWORK.md),
+  состояние реконструкции каналов в смежных проектах —
+  [docs/emvs/EMVS-ADJACENT-PROJECTS.md](emvs/EMVS-ADJACENT-PROJECTS.md), цитаты —
   [docs/emvs/EMVS-EVIDENCE.txt](emvs/EMVS-EVIDENCE.txt), перекрёстная учебная
   задача — [docs/emvs/TRAINING-TASK-COMPASS-INFOSEC.md](emvs/TRAINING-TASK-COMPASS-INFOSEC.md).
 

@@ -48,7 +48,7 @@
 Терминология (АРФА, экстракод 070, БЕМШ, зона тома и так далее) собрана
 в [docs/glossary.md](docs/glossary.md); нормативные документы и литература —
 в [docs/materials.md](docs/materials.md).
-Схема ЕМВС НИТИ и потоки данных между машинами комплекса разобраны в [docs/emvs/EMVS-NITI-NETWORK.md](docs/emvs/EMVS-NITI-NETWORK.md).
+Схема ЕМВС НИТИ и потоки данных между машинами комплекса разобраны в [docs/emvs/EMVS-NITI-NETWORK.md](docs/emvs/EMVS-NITI-NETWORK.md). Состояние реконструкции каналов в смежных проектах - [docs/emvs/EMVS-ADJACENT-PROJECTS.md](docs/emvs/EMVS-ADJACENT-PROJECTS.md).
 
 ## Инструментарий
 
