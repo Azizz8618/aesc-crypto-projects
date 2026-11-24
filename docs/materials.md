@@ -39,7 +39,10 @@
   пользователя, задание печати документа, форма задания задачи ОС с
   признаком шифрования.
 - **Приложение 3 плана** — схема ЕМВС НИТИ им. Александрова, исторический
-  контекст среды.
+  контекст среды. Развёрнутый разбор потоков и каналов:
+  [docs/emvs/EMVS-NITI-NETWORK.md](emvs/EMVS-NITI-NETWORK.md), цитаты —
+  [docs/emvs/EMVS-EVIDENCE.txt](emvs/EMVS-EVIDENCE.txt), перекрёстная учебная
+  задача — [docs/emvs/TRAINING-TASK-COMPASS-INFOSEC.md](emvs/TRAINING-TASK-COMPASS-INFOSEC.md).
 
 ## 3. Репозитории
 

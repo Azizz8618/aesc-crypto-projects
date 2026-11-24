@@ -48,6 +48,7 @@
 Терминология (АРФА, экстракод 070, БЕМШ, зона тома и так далее) собрана
 в [docs/glossary.md](docs/glossary.md); нормативные документы и литература —
 в [docs/materials.md](docs/materials.md).
+Схема ЕМВС НИТИ и потоки данных между машинами комплекса разобраны в [docs/emvs/EMVS-NITI-NETWORK.md](docs/emvs/EMVS-NITI-NETWORK.md).
 
 ## Инструментарий
 
