@@ -7,6 +7,8 @@
 
 Документ дополняет [cost-optimization.md](cost-optimization.md): там методика
 описана, здесь приведено фактическое состояние сессий на дату сбора.
+Формулы расчёта эффективности решения задач — в
+[repeated-read-efficiency.md](repeated-read-efficiency.md).
 
 ## 1. Что считается экономией
 
