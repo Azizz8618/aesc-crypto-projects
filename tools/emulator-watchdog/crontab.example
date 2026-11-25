@@ -1,0 +1,6 @@
+# aesc-crypto-projects: контроль зависших процессов dispak / simh.
+# Установка: crontab -l > /tmp/cron.bak; cat crontab.example >> /tmp/cron.bak; crontab /tmp/cron.bak
+# Проверка: crontab -l | grep emulator-watchdog
+
+# Каждые 5 минут: проверить dispak / besm6 / svs и завершить зависшие.
+*/5 * * * * /usr/bin/python3 $HOME/Yandex.Disk/aesc-crypto-projects/tools/emulator-watchdog/watchdog.py >> $HOME/.local/share/emulator-watchdog/cron.log 2>&1
