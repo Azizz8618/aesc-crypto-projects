@@ -336,4 +336,6 @@ BESM6_PATH="/usr/local/share/besm6:$HOME/.besm6" sh pascal/scripts/запись-
 `../re-siprod/pascal/README/КОМАНДЫ.md`,
 `docs/espd/План_внедрения_блочного_шифрования_задание_3.b6`.
 Известные дефекты редактора и обходы — в
-[реестре ошибок](siprod-editor-issues.md).*
+[реестре ошибок](siprod-editor-issues.md).
+Правила подготовки постов для телеграм — в
+[отдельном руководстве](telegram-post-guide.md).*
