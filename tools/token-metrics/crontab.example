@@ -1,0 +1,9 @@
+# aesc-crypto-projects: machine-local учёт экономии токенов.
+# Установка: crontab -l > /tmp/cron.bak; cat crontab.example >> /tmp/cron.bak; crontab /tmp/cron.bak
+# Проверка: crontab -l | grep aesc-token
+
+# Каждый день в 23:55 — снимок ccusage за текущие сутки.
+55 23 * * * $HOME/Yandex.Disk/aesc-crypto-projects/tools/token-metrics/snapshot.sh
+
+# По воскресеньям в 23:58 — сводный CSV по всем снимкам.
+58 23 * * 0 /usr/bin/python3 $HOME/Yandex.Disk/aesc-crypto-projects/tools/token-metrics/report.py >> $HOME/.local/share/aesc-token-metrics/report.log 2>&1
