@@ -1,0 +1,26 @@
+fn even_odd(n: int) -> int {
+    if (== n 0) { return 100 } else { return (odd_even (- n 1)) }
+}
+
+shadow even_odd {
+    assert (== (even_odd 0) 100)
+    assert (== (even_odd 4) 100)
+}
+
+fn odd_even(n: int) -> int {
+    if (== n 0) { return 200 } else { return (even_odd (- n 1)) }
+}
+
+shadow odd_even {
+    assert (== (odd_even 0) 200)
+    assert (== (odd_even 3) 100)
+}
+
+fn main() -> int {
+    (println (even_odd 4))
+    return 0
+}
+
+shadow main {
+    assert true
+}

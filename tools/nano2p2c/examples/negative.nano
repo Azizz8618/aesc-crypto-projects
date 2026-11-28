@@ -1,0 +1,16 @@
+fn diff(a: int, b: int) -> int {
+    return (- a b)
+}
+
+shadow diff {
+    assert (== (diff 3 10) -7)
+}
+
+fn main() -> int {
+    (println (diff 3 10))
+    return 0
+}
+
+shadow main {
+    assert true
+}

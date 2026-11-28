@@ -1,0 +1,25 @@
+fn sub(a: int, b: int) -> int {
+    return (- a b)
+}
+
+shadow sub {
+    assert (== (sub 10 3) 7)
+}
+
+fn mul(a: int, b: int) -> int {
+    return (* a b)
+}
+
+shadow mul {
+    assert (== (mul 6 7) 42)
+}
+
+fn main() -> int {
+    (println (sub 10 3))
+    (println (mul 6 7))
+    return 0
+}
+
+shadow main {
+    assert true
+}
